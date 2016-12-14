@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Preeti_HelloWorld>
+            <version>0.1.0</version>
+        </Preeti_HelloWorld>
+    </modules>
+
+    <frontend>
+        <routers>
+            <Preeti_HelloWorld>
+                <use>standard</use>
+                <args>
+                    <module>Preeti_HelloWorld</module>
+                    <frontName>preeti-helloworld</frontName>
+                </args>
+            </Preeti_HelloWorld>
+        </routers>
+    </frontend>
+
+     <admin>
+	  	<routers>
+	    	<Preeti_HelloWorld>
+	     	<use>admin</use>
+		    	<args>
+		      		<module>Preeti_HelloWorld</module>
+		      		<frontName>admin_helloworld</frontName>
+		     	</args>
+	    	</Preeti_HelloWorld>
+	  	</routers>
+	</admin>
+
+	<global>
+		  <helpers>
+		    <HelloWorld>
+		      	<class>Preeti_HelloWorld_Helper</class>
+		    </HelloWorld>
+		  </helpers>
+	</global>
+
+	<adminhtml>
+		 <menu>
+			   <Preeti_HelloWorld module="HelloWorld">
+				     <title>HelloWorldNew</title>
+				     <sort_order>100</sort_order>
+				     <children>
+					      <Preeti_HelloWorld module="HelloWorld">
+						        <title>HelloWorldNew</title>
+						        <sort_order>0</sort_order>
+						        <action>admin_helloworld/adminhtml_index</action>
+					      </Preeti_HelloWorld>
+				     </children>
+			   </Preeti_HelloWorld>
+		 </menu>
+	</adminhtml>   
+</config>
